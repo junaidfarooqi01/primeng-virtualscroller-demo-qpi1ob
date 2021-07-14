@@ -1,0 +1,19 @@
+<h5>Lazy Loading</h5>
+<p-virtualScroller [value]="virtualProducts" scrollHeight="580px" [itemSize]="30" [rows]="20" [lazy]="true"
+	(onLazyLoad)="loadCarsLazy($event)">
+	<ng-template pTemplate="header">
+		List of Products
+	</ng-template>
+	<ng-template let-product pTemplate="item" let-i="index">
+		<div class="product-item">
+			<div class="product-list-detail">
+				<h5 class="p-mb-2">{{product.title}} - {{ i + 1 }}</h5>
+				<i class="pi pi-tag product-category-icon"></i>
+				<span class="product-category">{{product.body}}</span>
+			</div>
+		</div>
+	</ng-template>
+	<ng-template let-product pTemplate="loadingItem">
+		<span>Loading...</span>
+	</ng-template>
+</p-virtualScroller>
